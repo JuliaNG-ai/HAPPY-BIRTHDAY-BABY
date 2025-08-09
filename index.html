@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Anniversaire anticipé — Lawrencia NGUEM 🎉</title>
+    <meta name="description" content="Journée sportive & surprise organisée par son duo & sa sistou. Rendez-vous Gare de Lyon 14h20." />
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Pacifico&display=swap" rel="stylesheet">
+    
+    <!-- Particles.js -->
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+
+    <style>
+        :root {
+            --bg: #fffafc;
+            --accent1: #7b2ff7;
+            --accent2: #f107a3;
+            --gold: #f5c26b;
+            --card: #ffffff;
+            --muted: #6b6b6b;
+            --radius: 8px;
+            --maxw: 900px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg);
+            color: #333;
+            text-align: center;
+            overflow-x: hidden;
+        }
+
+        header {
+            background-color: var(--accent1);
+            color: white;
+            padding: 30px;
+            transition: background-color 0.3s ease;
+            font-family: 'Pacifico', cursive;
+            position: relative;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+
+        header p {
+            margin-top: 10px;
+            opacity: 0.85;
+        }
+
+        /* Animation for confetti and balloons */
+        #particles-js {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .container {
+            max-width: var(--maxw);
+            margin: 20px auto;
+            padding: 0 15px;
+        }
+
+        .section {
+            margin: 20px 0;
+            padding: 15px;
+        }
+
+        .card {
+            background: white;
+            border-radius: var(--radius);
+            padding: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin: 15px 0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .countdown {
+            font-size: 2rem;
+            font-weight: bold;
+            padding: 20px;
+            background: var(--accent2);
+            color: white;
+            border-radius: var(--radius);
+        }
+
+        footer {
+            background-color: var(--accent1);
+            color: white;
+            padding: 15px;
+            margin-top: 30px;
+            font-size: 0.9rem;
+        }
+
+        .day-program {
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .day-program:hover {
+            background-color: var(--gold);
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .register-btn {
+            background-color: var(--accent2);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: var(--radius);
+            transition: background-color 0.3s ease;
+        }
+
+        .register-btn:hover {
+            background-color: var(--accent1);
+        }
+
+        .maplink {
+            text-decoration: underline;
+            color: var(--accent1);
+        }
+
+        .maplink:hover {
+            color: var(--accent2);
+        }
+
+    </style>
+</head>
+
+<body>
+
+<!-- Particles.js background -->
+<div id="particles-js"></div>
+
+<header>
+    <h1>🎉 Une journée rien que pour toi… organisée avec amour par ton duo et ta sistou ❤️</h1>
+    <p>Sport, fun, défis, surprises… mais chuuut 🤫</p>
+    <button class="register-btn" onclick="scrollToProgramme()">Découvrir le programme</button>
+</header>
+
+<main class="container">
+    <!-- Programme -->
+    <section class="section" id="programme">
+        <h2>📅 Programme de la journée</h2>
+
+        <div class="card day-program" onclick="toggleDetails('programme-1')">
+            <h3>📍 Rendez-vous — 14h20</h3>
+            <p><strong>Lieu :</strong> Gare de Lyon, Paris</p>
+            <p class="small">Cliquez pour voir les détails</p>
+        </div>
+        <div id="programme-1" class="hidden">
+            <p class="small">Dress code : Tenue confortable + tennis 👟</p>
+            <p><a class="maplink" href="https://www.google.com/maps/search/Gare+de+Lyon,+Paris" target="_blank" rel="noopener">Voir sur Google Maps</a></p>
+        </div>
+
+        <div class="card day-program" onclick="toggleDetails('programme-2')">
+            <h3>⏳ 15h00 — Lancement de l’aventure</h3>
+            <p class="small">Cliquez pour voir les détails</p>
+        </div>
+        <div id="programme-2" class="hidden">
+            <p class="small"><strong>Mot de passe pour participer :</strong> <em>Les Warriors</em> 💪</p>
+            <p class="small"><strong>Durée :</strong> 1h30 de défi et de fun 💪</p>
+        </div>
+
+        <div class="card day-program" onclick="toggleDetails('programme-3')">
+            <h3>🕕 18h00 — Prêts pour le grand saut ?</h3>
+            <p class="small">Cliquez pour voir les détails</p>
+        </div>
+        <div id="programme-3" class="hidden">
+            <p><strong>Lieu :</strong> Parc Jump — Savigny-le-Temple</p>
+            <p><strong>Durée :</strong> 1h de saut et de rires 🐒</p>
+            <p><a class="maplink" href="https://www.google.com/maps/search/Parc+Jump+Savigny+le+Temple" target="_blank" rel="noopener">Voir sur Google Maps</a></p>
+        </div>
+
+        <div class="card day-program" onclick="toggleDetails('programme-4')">
+            <h3>🍽️ Dîner festif</h3>
+            <p class="small">Cliquez pour voir les détails</p>
+        </div>
+        <div id="programme-4" class="hidden">
+            <p><strong>Lieu :</strong> Surprise 🎁</p>
+            <p><strong>Ambiance :</strong> Chaleureuse et festive 🥳</p>
+        </div>
+    </section>
+
+    <!-- Countdown -->
+    <section class="section">
+        <h2>⏳ Compte à rebours</h2>
+        <div class="countdown" id="countdown">Chargement...</div>
+    </section>
+
+    <!-- Registration Button -->
+    <section class="section">
+        <h2>✅ Inscription</h2>
+        <button class="register-btn" onclick="alert('Merci pour votre inscription ! 🎉')">Je participe !</button>
+    </section>
+
+</main>
+
+<footer>
+    <p>💜 Organisé avec amour pour Lawrencia — Ton duo & ta sistou</p>
+    <p>© Anniversaire Lawrencia — Tous droits réservés</p>
+</footer>
+
+<script>
+// Particles.js configuration
+particlesJS("particles-js", {
+    particles: {
+        number: { value: 100, density: { enable: true, value_area: 800 } },
+        color: { value: "#f107a3" },
+        shape: {
+            type: "circle",
+            stroke: { width: 0, color: "#000" }
+        },
+        opacity: {
+            value: 0.5,
+            random: true,
+            anim: { enable: true, speed: 1, opacity_min: 0, sync: false }
+        },
+        size: {
+            value: 3,
+            random: true,
+            anim: { enable: true, speed: 40, size_min: 0.3, sync: false }
+        },
+        line_linked: { enable: false },
+        move: {
+            enable: true,
+            speed: 3,
+            direction: "random",
+            random: true,
+            straight: false,
+            bounce: false,
+            attract: { enable: false }
+        }
+    },
+    interactivity: {
+        detect_on: "window",
+        events: {
+            onhover: { enable: true, mode: "bubble" },
+            onclick: { enable: true, mode: "repulse" }
+        },
+        modes: {
+            bubble: { distance: 250, duration: 2, size: 0, opacity: 0.8 },
+            repulse: { distance: 400, duration: 4 }
+        }
+    },
+    retina_detect: true
+});
+
+// Scroll to the program section when button is clicked
+function scrollToProgramme() {
+    document.getElementById("programme").scrollIntoView({ behavior: "smooth" });
+}
+
+// Date de l'événement (10 heures à partir de maintenant)
+const eventDate = new Date();
+eventDate.setHours(eventDate.getHours() + 10);
+
+// Élément du compte à rebours
+const countdownEl = document.getElementById('countdown');
+
+// Fonction pour ajouter un zéro devant les valeurs <10
+function pad(n) {
+    return n.toString().padStart(2, '0');
+}
+
+// Fonction de mise à jour du compte à rebours
+function updateCountdown() {
+    const now = new Date();
+    const diff = eventDate - now;
+
+    if (diff <= 0) {
+        countdownEl.textContent = "🎉 C'est parti ! 🎉";
+        return;
+    }
+
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    const minutes = Math.floor((diff / (1000 * 60)) % 60);
+    const seconds = Math.floor((diff / 1000) % 60);
+    countdownEl.textContent = `${days}j ${pad(hours)}h ${pad(minutes)}m ${pad(seconds)}s`;
+}
+
+// Mettre à jour le compte à rebours toutes les secondes
+updateCountdown();
+setInterval(updateCountdown, 1000);
+
+// Toggle details for each program item
+function toggleDetails(id) {
+    const details = document.getElementById(id);
+    details.classList.toggle('hidden');
+}
+</script>
+
+</body>
+
+</html>
